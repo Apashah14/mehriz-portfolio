@@ -1254,19 +1254,23 @@ function animRing() {
 }
 animRing();
 
+function resetCursor() {
+  cursor.style.width = '10px';
+  cursor.style.height = '10px';
+  cursor.style.background = 'var(--black)';
+}
+
 document.querySelectorAll('a, button, .screen-card').forEach(el => {
   el.addEventListener('mouseenter', () => {
     cursor.style.width = '20px';
     cursor.style.height = '20px';
     cursor.style.background = 'var(--accent)';
   });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.width = '10px';
-    cursor.style.height = '10px';
-    cursor.style.background = dark ? '#F4F3EF' : 'var(--black)';
-    ring.style.borderColor = dark ? '#F4F3EF' : 'var(--black)';
-  });
+
+  el.addEventListener('mouseleave', resetCursor);
 });
+
+window.addEventListener('scroll', resetCursor);
 
 // Reveal on scroll
 const reveals = document.querySelectorAll('.reveal');
