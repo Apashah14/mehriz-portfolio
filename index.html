@@ -759,6 +759,97 @@ nav {
     .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
     .nav-links { display: none; }
   }
+  @media (max-width: 768px) {
+
+  /* GLOBAL */
+  section {
+    padding: 60px 20px;
+  }
+
+  nav {
+    padding: 20px;
+  }
+
+  /* HIDE MENU (mobile) */
+  .nav-links {
+    display: none;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 0 20px 40px;
+    height: auto;
+  }
+
+  .hero-title {
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+  }
+
+  .hero-meta {
+    position: static;
+    text-align: left;
+    margin-top: 20px;
+  }
+
+  /* OVERVIEW */
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* SCREENS */
+  .screen-showcase.two-col,
+  .screen-showcase.three-col {
+    grid-template-columns: 1fr;
+  }
+
+  .screen-card {
+    height: auto !important;
+  }
+
+  /* MOBILE PHONES SCROLL FIX */
+  .phone-grid {
+    gap: 20px;
+    padding-left: 10px;
+  }
+
+  /* DESIGN SYSTEM */
+  .ds-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* PROCESS */
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* FEATURES */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* FOOTER */
+  .footer-cta {
+    padding: 80px 20px;
+  }
+
+  .footer-cta h2 {
+    font-size: 36px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .footer-cta .cta-btn + .cta-btn {
+    margin-left: 0;
+  }
 </style>
 </head>
 <body>
