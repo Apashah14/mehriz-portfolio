@@ -351,6 +351,11 @@ nav {
     overflow: hidden;
     background: var(--light-gray);
     cursor: pointer;
+    .screen-card {
+  max-width: 280px;
+  width: 100%;
+  margin: 0 auto 20px;
+}
   }
   .screen-card:hover .screen-img { scale: 1.04; }
   .screen-card:hover .screen-overlay { opacity: 1; }
@@ -437,13 +442,14 @@ nav {
   .mobile-section { background: var(--white); }
 
   .phone-grid {
-    display: flex;
+    display: block;
     gap: 30px;
     align-items: center;
-    overflow-x: auto;
+    overflow-x: hidden;
     padding-bottom: 20px;
     margin-top: 60px;
     scrollbar-width: none;
+    padding-left: 0;
   }
   .phone-grid::-webkit-scrollbar { display: none; }
   .phone-frame {
