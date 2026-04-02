@@ -351,11 +351,6 @@ nav {
     overflow: hidden;
     background: var(--light-gray);
     cursor: pointer;
-    .screen-card {
-  max-width: 280px;
-  width: 100%;
-  margin: 0 auto 20px;
-}
   }
   .screen-card:hover .screen-img { scale: 1.04; }
   .screen-card:hover .screen-overlay { opacity: 1; }
@@ -442,9 +437,9 @@ nav {
   .mobile-section { background: var(--white); }
 
   .phone-grid {
-    display: block;
+    display: flex;
     gap: 30px;
-    align-items: center;
+    align-items: flex-start;
     overflow-x: hidden;
     padding-bottom: 20px;
     margin-top: 60px;
