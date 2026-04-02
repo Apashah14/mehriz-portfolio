@@ -97,6 +97,77 @@ nav {
 .nav-links a:hover {
   opacity: 1;
 }
+  .menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 120;
+}
+
+.menu-toggle span {
+  position: absolute;
+  left: 10px;
+  width: 24px;
+  height: 1.5px;
+  background: var(--white);
+  transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
+}
+
+.menu-toggle span:nth-child(1) { top: 14px; }
+.menu-toggle span:nth-child(2) { top: 21px; }
+.menu-toggle span:nth-child(3) { top: 28px; }
+
+.menu-toggle.active span:nth-child(1) {
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 82px;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.96);
+  backdrop-filter: blur(12px);
+  padding: 24px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 99;
+}
+
+.mobile-menu a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 
   /* ── HERO ── */
   .hero {
@@ -754,6 +825,15 @@ nav {
   .nav-links {
     display: none;
   }
+     .menu-toggle {
+    display: block;
+  }
+
+  .mobile-menu {
+    top: 72px;
+    padding: 20px 20px 24px;
+  }
+
 
   section {
     padding: 80px 20px;
@@ -988,13 +1068,27 @@ nav {
 <!-- NAV - with black background -->
 <nav>
   <a href="#" class="nav-logo">Mehriz Home</a>
+
   <ul class="nav-links">
     <li><a href="#overview">Overview</a></li>
     <li><a href="#screens">Screens</a></li>
     <li><a href="#design">Design System</a></li>
     <li><a href="#process">Process</a></li>
   </ul>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#overview">Overview</a>
+  <a href="#screens">Screens</a>
+  <a href="#design">Design System</a>
+  <a href="#process">Process</a>
+</div>
 
 
 <!-- HERO -->
@@ -1409,6 +1503,23 @@ const obs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 reveals.forEach(r => obs.observe(r));
+  const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    });
+  });
+}
+
 </script>
 </body>
 </html>
